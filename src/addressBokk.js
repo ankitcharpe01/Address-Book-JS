@@ -85,3 +85,21 @@ class Contact {
   function sortByLocation(attribute) {
     return addressBook.sort((a, b) => a[attribute].localeCompare(b[attribute]));
   }
+
+
+const contact1 = new Contact("John", "Doe", "123 Main St", "New York", "New York", "10001", "1234567890", "john.doe@example.com");
+const contact2 = new Contact("Jane", "Smith", "456 Oak St", "Los Angeles", "CA", "90001", "9876543210", "jane.smith@example.com");
+
+addContact(contact1);  // Adds contact1
+addContact(contact2);  // Adds contact2
+
+console.log("Total contacts: ", countContacts()); 
+editContactByName("John Doe", new Contact("John", "Doe", "123 New St", "New York", "New York", "10001", "1234567890", "john.doe@example.com"));
+console.log(addressBook);  // Verify contact1 is edited
+
+deleteContactByName("Jane Smith");
+console.log(addressBook);  // Verify contact2 is deleted
+
+console.log("Contacts in New York: ", viewByCityOrState("New York"));  // Outputs contacts in New York
+
+console.log("Contacts sorted by name: ", sortByName());  // Outputs contacts sorted by name
