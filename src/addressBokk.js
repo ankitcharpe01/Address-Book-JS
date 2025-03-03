@@ -34,3 +34,10 @@ class Contact {
       console.error('Invalid Contact');
     }
   }
+
+  function editContactByName(name, newContact) {
+    const index = addressBook.findIndex(contact => contact.firstName === name.split(' ')[0] && contact.lastName === name.split(' ')[1]);
+    if (index !== -1) {
+      addressBook[index] = newContact;
+    }
+  }
